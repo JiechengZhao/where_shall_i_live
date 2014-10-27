@@ -5,7 +5,7 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <style type="text/css">
     body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-    #r-result {position: absolute; left:0; top:0; width:175px;z-index:90;}
+    #r-result {position: absolute; right:0; top:0; width:175px;z-index:90;}
     #allmap{position:relative;overflow:hidden;}
   </style>
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Typ9aiOPhCYaVrkuAtL2TnGL"></script>
@@ -67,6 +67,9 @@
             function setTopFunc (marker,value){
               return function(){
                 marker.setTop(value)
+                if(value){
+                  driving.search(searchTarget, marker.getPosition())
+                }
               }
 
             }
